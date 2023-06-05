@@ -8,6 +8,7 @@ headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json
 def remains(date):
 
     """
+    remains -  это остатки
     Получаю остатки на дату date_from
     """
 
@@ -42,6 +43,8 @@ def sold_goods(date_1, date_2):
     sold['quantity'] = quantity
     return sold
 
+
+
 def assortment():
 
     """
@@ -56,6 +59,8 @@ def assortment():
     result.code = pd.to_numeric(result.code)
     return result[['code', 'name','description', 'weight']]
 
+
+
 def remains_of_packs_after_shiping (date):
 
     """
@@ -66,4 +71,4 @@ def remains_of_packs_after_shiping (date):
     result = remains(date)
 
     # Возвращаю только пачки, которых меньше 30
-    return result[(result.code < 20000) & (result['quantity'] < 100)].sort_values('quantity')
+    return result[(result.code < 20000) & (result['quantity'] < 50)].sort_values('quantity')
